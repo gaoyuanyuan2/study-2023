@@ -1,4 +1,4 @@
-package com.yan.boot.bootstrap;
+package com.yan.spring.boot.bootstrap;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

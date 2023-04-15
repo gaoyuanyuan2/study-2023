@@ -1,7 +1,7 @@
-package com.yan.boot.controller;
+package com.yan.spring.boot.controller;
 
 
-import com.yan.boot.domain.User;
+import com.yan.spring.boot.domain.User;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;

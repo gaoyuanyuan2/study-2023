@@ -1,7 +1,6 @@
-package com.yan.boot.support;
+package com.yan.spring.boot.support;
 
-import com.yan.boot.properties.PropertiesHttpMessageConverter;
-import com.yan.boot.properties.PropertiesHttpMessageConverter;
+import com.yan.spring.boot.properties.PropertiesHttpMessageConverter;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.server.ServletServerHttpRequest;

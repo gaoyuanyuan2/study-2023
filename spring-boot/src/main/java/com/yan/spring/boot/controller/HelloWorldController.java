@@ -1,4 +1,4 @@
-package com.yan.boot.controller;
+package com.yan.spring.boot.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

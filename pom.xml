@@ -15,6 +15,7 @@
 	<description>Demo project for 2023 Study</description>
 	<modules>
 		<module>spring-boot</module>
-	</modules>
+        <module>spring-demo</module>
+    </modules>
 	<packaging>pom</packaging>
 </project>

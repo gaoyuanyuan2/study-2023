@@ -1,8 +1,8 @@
-package com.yan.boot.config;
+package com.yan.spring.boot.config;
 
 
-import com.yan.boot.support.PropertiesHandlerMethodArgumentResolver;
-import com.yan.boot.support.PropertiesHandlerMethodReturnValueHandler;
+import com.yan.spring.boot.support.PropertiesHandlerMethodArgumentResolver;
+import com.yan.spring.boot.support.PropertiesHandlerMethodReturnValueHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;

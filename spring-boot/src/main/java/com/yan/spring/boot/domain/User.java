@@ -1,4 +1,4 @@
-package com.yan.boot.domain;
+package com.yan.spring.boot.domain;
 
 /**
  *  用户模型
