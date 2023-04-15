@@ -6,6 +6,7 @@ import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpOutputMessage;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.ServletServerHttpResponse;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
@@ -17,7 +18,7 @@ import java.util.Properties;
 
 /**
  * {@link Properties} {@link HandlerMethodReturnValueHandler} 实现
- *
+ * 替换  {@link ResponseBody}
  * @author 小马哥
  * @since 2018/5/28
  */

@@ -21,7 +21,7 @@ import java.util.Properties;
 
 /**
  * {@link Properties} {@link HttpMessageConverter} 实现
- *
+ * 类型转换
  * @author 小马哥
  * @since 2018/5/27
  */

@@ -5,6 +5,7 @@ import com.yan.boot.properties.PropertiesHttpMessageConverter;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.server.ServletServerHttpRequest;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.context.request.ServletWebRequest;
@@ -16,7 +17,7 @@ import java.util.Properties;
 
 /**
  * {@link Properties 类型} {@link HandlerMethodArgumentResolver}
- *
+ * 替换  {@link RequestBody}
  * @author 小马哥
  * @since 2018/5/27
  */
