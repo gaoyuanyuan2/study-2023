@@ -9,8 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.yan</groupId>
-    <artifactId>spring-boot-2023</artifactId>
+    <artifactId>study-2023</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>study-2023</name>
     <description>Demo project for 2023 Study</description>
     <modules>
