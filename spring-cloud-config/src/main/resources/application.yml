@@ -1,0 +1,13 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: spring-cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/yanguowei/spring-cloud-starter/     # ??git?????
+          search-paths: config-repo                             # git???????????????????,???
+          username:  yanguowei                                            # git?????
+          password:   ygw520ygw                                           # git?????

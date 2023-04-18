@@ -1,4 +1,4 @@
-package com.yan.spring.boot.temp;
+package com.yan.spring.cloud.config.property;
 
 import org.springframework.boot.context.event.ApplicationEnvironmentPreparedEvent;
 import org.springframework.context.ApplicationListener;

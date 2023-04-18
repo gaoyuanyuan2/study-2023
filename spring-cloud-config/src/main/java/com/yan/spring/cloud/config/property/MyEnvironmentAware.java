@@ -1,11 +1,7 @@
-package com.yan.spring.boot.temp;
+package com.yan.spring.cloud.config.property;
 
 import org.springframework.context.EnvironmentAware;
-import org.springframework.core.env.ConfigurableEnvironment;
-import org.springframework.core.env.Environment;
-import org.springframework.core.env.MapPropertySource;
-import org.springframework.core.env.MutablePropertySources;
-import org.springframework.core.env.PropertySource;
+import org.springframework.core.env.*;
 
 import java.util.HashMap;
 import java.util.Map;
