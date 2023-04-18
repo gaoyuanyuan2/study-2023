@@ -7,7 +7,7 @@ spring:
     config:
       server:
         git:
-          uri: https://gitee.com/yanguowei/spring-cloud-starter/     # ??git?????
-          search-paths: config-repo                             # git???????????????????,???
-          username:  yanguowei                                            # git?????
-          password:   ygw520ygw                                           # git?????
+          uri: https://gitee.com/yanguowei/spring-cloud-starter/
+          search-paths: config-repo
+          username: yanguowei
+          password:
