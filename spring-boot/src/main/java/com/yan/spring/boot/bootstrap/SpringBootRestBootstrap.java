@@ -10,8 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since 2018/5/27
  */
 @SpringBootApplication(scanBasePackages = {
-        "com.yan.boot.controller",
-        "com.yan.boot.config"
+        "com.yan.spring.boot.controller",
+        "com.yan.spring.boot.config"
 })
 public class SpringBootRestBootstrap {
 
