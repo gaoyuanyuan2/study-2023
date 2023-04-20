@@ -1,6 +1,7 @@
 package com.yan.spring.cloud.config.property;
 
 import org.springframework.context.EnvironmentAware;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.*;
 
 import java.util.HashMap;
@@ -12,6 +13,7 @@ import java.util.Map;
  * @author : Y
  * @since 2023/4/17 20:46
  */
+@Configuration
 public class MyEnvironmentAware implements EnvironmentAware {
 
     @Override
