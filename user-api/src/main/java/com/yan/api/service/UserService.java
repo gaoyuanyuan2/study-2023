@@ -6,7 +6,7 @@ import java.util.Collection;
 
 public interface UserService {
 
-    boolean save(User user);
+    User save(User user);
 
     Collection<User> findAll();
 }
