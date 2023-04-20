@@ -16,7 +16,7 @@ import java.util.HashMap;
 @Service
 public class DefaultUserService implements UserService {
 
-    public static final String PROVIDER_SERVER_URL_PREFIX = "http://spring-cloud-config-provider";
+    public static final String PROVIDER_SERVER_URL_PREFIX = "http://spring-cloud-user-provider/";
 
 
     @Autowired

@@ -20,8 +20,9 @@
         <module>spring-cloud-config</module>
         <module>spring-cloud-config-client</module>
         <module>spring-cloud-eureka-server</module>
-        <module>spring-cloud-user-service-consumer</module>
+        <module>spring-cloud-user-consumer</module>
         <module>user-api</module>
+        <module>spring-cloud-user-provider</module>
     </modules>
     <dependencyManagement>
         <dependencies>
@@ -31,6 +32,12 @@
                 <version>2020.0.1</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.yan.api</groupId>
+                <artifactId>user-api</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+                <scope>compile</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

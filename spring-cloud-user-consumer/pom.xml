@@ -10,10 +10,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.yan</groupId>
-    <artifactId>spring-cloud-user-service-consumer</artifactId>
+    <artifactId>spring-cloud-user-consumer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-cloud-user-service-consumer</name>
-    <description>spring-cloud-user-service-consumer</description>
+    <name>spring-cloud-user-consumer</name>
+    <description>spring-cloud-user-consumer</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -38,18 +38,7 @@
         <dependency>
             <groupId>com.yan.api</groupId>
             <artifactId>user-api</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
