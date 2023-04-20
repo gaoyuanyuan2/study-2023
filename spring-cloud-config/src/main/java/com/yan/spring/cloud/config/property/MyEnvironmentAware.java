@@ -13,6 +13,7 @@ import java.util.Map;
  * @since 2023/4/17 20:46
  */
 public class MyEnvironmentAware implements EnvironmentAware {
+
     @Override
     public void setEnvironment(Environment environment) {
         if (environment instanceof ConfigurableEnvironment) {

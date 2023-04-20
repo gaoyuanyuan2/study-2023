@@ -19,6 +19,9 @@
         <module>spring-demo</module>
         <module>spring-cloud-config</module>
         <module>spring-cloud-config-client</module>
+        <module>spring-cloud-eureka-server</module>
+        <module>spring-cloud-user-service-consumer</module>
+        <module>user-api</module>
     </modules>
     <dependencyManagement>
         <dependencies>

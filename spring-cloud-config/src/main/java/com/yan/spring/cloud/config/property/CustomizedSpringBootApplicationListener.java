@@ -14,6 +14,7 @@ import java.util.Map;
 /**
  * 自定义 Spring Boot {@link ApplicationListener}
  * Spring SPI 自动加载
+ *
  * @author : Y
  * @since 2023/4/17 20:43
  */
@@ -28,7 +29,7 @@ public class CustomizedSpringBootApplicationListener implements
 
         Map<String, Object> source = new HashMap<>();
 
-        source.put("server.port", 5678);
+        source.put("server.port", 8001);
         source.put("spring.profiles.include", "abc");
 
         PropertySource propertySource = new MapPropertySource("from-application-listener", source);
@@ -38,6 +39,6 @@ public class CustomizedSpringBootApplicationListener implements
 
     @Override
     public int getOrder() {
-        return Ordered.HIGHEST_PRECEDENCE;
+        return Ordered.HIGHEST_PRECEDENCE + 1;
     }
 }
