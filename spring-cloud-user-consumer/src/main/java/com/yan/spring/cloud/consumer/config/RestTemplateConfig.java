@@ -1,5 +1,6 @@
 package com.yan.spring.cloud.consumer.config;
 
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
@@ -10,6 +11,12 @@ import org.springframework.web.client.RestTemplate;
  */
 @Configuration
 public class RestTemplateConfig {
+
+    /**
+     * 不加@LoadBalanced 注解，RestTemplate不能通过服务名称找到服务
+     * @return
+     */
+    @LoadBalanced
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
