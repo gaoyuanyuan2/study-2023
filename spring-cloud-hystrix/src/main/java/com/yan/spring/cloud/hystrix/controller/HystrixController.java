@@ -1,4 +1,4 @@
-package com.yan.spring.cloud.config.client.controller;
+package com.yan.spring.cloud.hystrix.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
