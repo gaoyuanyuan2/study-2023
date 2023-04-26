@@ -39,6 +39,10 @@
             <groupId>com.yan.api</groupId>
             <artifactId>user-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>cps-usecar.org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

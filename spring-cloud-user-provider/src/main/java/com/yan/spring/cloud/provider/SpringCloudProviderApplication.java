@@ -1,4 +1,4 @@
-package com.yan.spring.cloud.consumer;
+package com.yan.spring.cloud.provider;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

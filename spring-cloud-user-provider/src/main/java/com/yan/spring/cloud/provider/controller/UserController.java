@@ -1,4 +1,4 @@
-package com.yan.spring.cloud.consumer.controller;
+package com.yan.spring.cloud.provider.controller;
 
 import com.yan.api.domain.User;
 import com.yan.api.service.UserService;

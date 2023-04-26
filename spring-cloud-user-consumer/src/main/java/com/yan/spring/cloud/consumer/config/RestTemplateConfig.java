@@ -14,12 +14,13 @@ import org.springframework.web.client.RestTemplate;
 public class RestTemplateConfig {
 
     /**
+     * new RestTemplate(new OkHttp3ClientHttpRequestFactory()
      * 不加@LoadBalanced 注解，RestTemplate不能通过服务名称找到服务
      * @return
      */
     @LoadBalanced
     @Bean
     public RestTemplate restTemplate() {
-        return new RestTemplate(new OkHttp3ClientHttpRequestFactory());
+        return new RestTemplate();
     }
 }
