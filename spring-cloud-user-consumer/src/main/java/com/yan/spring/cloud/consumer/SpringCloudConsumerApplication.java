@@ -1,9 +1,11 @@
 package com.yan.spring.cloud.consumer;
 
+import com.yan.spring.cloud.consumer.config.FirstServerForeverRule;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.Bean;
 
 
 @SpringBootApplication
@@ -15,4 +17,8 @@ public class SpringCloudConsumerApplication {
         SpringApplication.run(SpringCloudConsumerApplication.class, args);
     }
 
+    @Bean
+    public FirstServerForeverRule firstServerForeverRule() {
+        return new FirstServerForeverRule();
+    }
 }
