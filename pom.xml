@@ -23,6 +23,7 @@
         <module>spring-cloud-user-consumer</module>
         <module>user-api</module>
         <module>spring-cloud-user-provider</module>
+        <module>spring-cloud-zuul</module>
     </modules>
     <dependencyManagement>
         <dependencies>
