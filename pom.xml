@@ -24,6 +24,7 @@
         <module>user-api</module>
         <module>spring-cloud-user-provider</module>
         <module>spring-cloud-zuul</module>
+        <module>spring-cloud-kafka</module>
     </modules>
     <dependencyManagement>
         <dependencies>
