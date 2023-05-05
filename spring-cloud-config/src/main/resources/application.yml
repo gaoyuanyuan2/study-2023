@@ -10,4 +10,4 @@ spring:
           uri: https://gitee.com/yanguowei/spring-cloud-starter/
           search-paths: config-repo
           username: yanguowei
-          password:
+          password: ygw520ygw
