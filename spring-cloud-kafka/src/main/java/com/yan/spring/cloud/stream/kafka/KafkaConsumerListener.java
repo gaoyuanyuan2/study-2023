@@ -1,5 +1,6 @@
-package com.yan.spring.cloud.eureka.server.kafka;
+package com.yan.spring.cloud.stream.kafka;
 
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 /**

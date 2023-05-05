@@ -1,7 +1,9 @@
-package com.yan.spring.cloud.eureka.server.kafka;
+package com.yan.spring.cloud.stream.kafka;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -23,7 +25,7 @@ public class KafkaController {
         this.topic = topic;
     }
 
-    @PostMapping(" /message/send")
+    @GetMapping(" /message/send")
     public Boolean sendMessage(@RequestParam String message) {
         kafkaTemplate.send(topic, message);
         return true;

@@ -1,8 +1,13 @@
-package com.yan.spring.cloud.eureka.server.kafka;
+package com.yan.spring.cloud.stream.kafka;
 
 import com.fasterxml.jackson.databind.ser.std.StringSerializer;
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
 
 import java.util.Properties;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 /**
  * Kafka API
@@ -11,7 +16,8 @@ import java.util.Properties;
  * @since 2023/5/5 20:02
  */
 public class APIKafkaService {
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
         //初始化配置
         Properties properties = new Properties();
         properties.setProperty("bootstrap.servers", "localhost:9092");
@@ -26,7 +32,7 @@ public class APIKafkaService {
         String value = "message-value";
         ProducerRecord<String, String> record =
                 new ProducerRecord<String, String>(topic, partition, timestamp, key, value);
-        //发放Kakfa 消息
+        //发Kakfa 消息
         Future<RecordMetadata> metadataFuture = kafkaProducer.send(record);
         //强制执行
         metadataFuture.get();
