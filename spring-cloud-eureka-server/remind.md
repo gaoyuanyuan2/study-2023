@@ -39,5 +39,11 @@ eureka.client.fetch-registry = true
 ## Eureka Server服务URL,用于客户端注册
 ##当前Eureka服务器向9091 (Eureka服务器)复制数据
 eureka.client.serviceUrl.defaultZone=\
-http://localhost:9090  /eureka 
+http://localhost:9090/eureka 
 ```
+
+
+基本概念
+Source:来源，近义词: Producer、 Publisher
+Sink:接收器，近义词: Consumer、 Subscriber
+Processor:对于. 上流而言是Sink，对于下流而言是Source
