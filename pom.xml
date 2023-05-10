@@ -28,6 +28,7 @@
         <module>spring-cloud-rabbitmq</module>
         <module>spring</module>
         <module>spring-cloud-sleuth</module>
+        <module>spring-cloud-zipkin</module>
     </modules>
     <dependencyManagement>
         <dependencies>

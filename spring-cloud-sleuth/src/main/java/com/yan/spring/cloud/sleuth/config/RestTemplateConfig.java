@@ -1,9 +1,8 @@
-package com.yan.spring.cloud.consumer.config;
+package com.yan.spring.cloud.sleuth.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.client.OkHttp3ClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -15,7 +14,7 @@ public class RestTemplateConfig {
 
     /**
      * new RestTemplate(new OkHttp3ClientHttpRequestFactory()
-     * 不加@LoadBalanced 注解,RestTemplate不能通过服务名称找到服务
+     * 不加@LoadBalanced 注解，RestTemplate不能通过服务名称找到服务
      * @return
      */
     @LoadBalanced
