@@ -26,9 +26,8 @@
         <module>spring-cloud-zuul</module>
         <module>spring-cloud-kafka</module>
         <module>spring-cloud-rabbitmq</module>
-        <module>spring</module>
         <module>spring-cloud-sleuth</module>
-        <module>spring-cloud-zipkin-server</module>
+        <module>spring-cloud-zipkin</module>
     </modules>
     <dependencyManagement>
         <dependencies>
