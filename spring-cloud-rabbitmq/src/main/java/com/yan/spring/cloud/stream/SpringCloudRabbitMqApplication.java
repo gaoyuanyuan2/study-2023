@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringCloudRabbitMqApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringCloudKafkaApplication.class, args);
+        SpringApplication.run(SpringCloudRabbitMqApplication.class, args);
     }
 
 }
