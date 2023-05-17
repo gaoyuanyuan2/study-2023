@@ -8,8 +8,10 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
+import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 import org.springframework.core.env.MapPropertySource;
+import org.springframework.core.env.MutablePropertySources;
 import org.springframework.core.env.PropertySource;
 
 import java.util.HashMap;
@@ -37,7 +39,18 @@ public class SpringCloudConfigApplication {
             Map<String, Object> source = new HashMap<>();
             source.put("server.port", 9090);
             PropertySource propertySource = new MapPropertySource("my-property-source", source);
-            return propertySource;
+            // 获取 PropertySources
+            if (environment instanceof ConfigurableEnvironment) {
+
+                ConfigurableEnvironment configurableEnvironment = ConfigurableEnvironment.class.cast(environment);
+
+                // 获取 PropertySources
+                MutablePropertySources propertySources = configurableEnvironment.getPropertySources();
+                // 定义一个新的 PropertySource，并且放置在首位
+                propertySources.addFirst(propertySource);
+
+            }
+            return null;
         }
     }
 }

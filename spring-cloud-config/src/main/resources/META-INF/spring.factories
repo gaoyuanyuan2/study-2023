@@ -1,5 +1,5 @@
 org.springframework.cloud.bootstrap.BootstrapConfiguration=\
-  com.yan.spring.cloud.config.SpringCloudConfigApplication.MyPropertySourceLocator
+  com.yan.spring.cloud.config.property.MyPropertySourceLocator
 
 org.springframework.context.ApplicationListener=\
   com.yan.spring.cloud.config.property.CustomizedSpringBootApplicationListener

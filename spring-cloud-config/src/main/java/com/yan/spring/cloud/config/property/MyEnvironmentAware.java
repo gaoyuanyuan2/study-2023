@@ -9,6 +9,8 @@ import java.util.Map;
 
 /**
  * 自定义
+ * 实现 {@Link ApplicationContextInitializer}
+ * 或者 {@Link EnvironmentAware}
  *
  * @author : Y
  * @since 2023/4/17 20:46
