@@ -47,3 +47,15 @@ JTA 还能操作IMS。
 
 答: Feign 作为声明式客户端调用，Ribbon 主要负责负载均衡。Feign 可以整合
 Ribbon,但是不是强依赖。Spring Cloud对Feign 增强，Feign 原始不支持Spring WebMVC，而是支持标准JAX-RS ( Rest标准)
+
+
+## 扩展HTTP客户端
+
+* ClientHttpRequestFactory
+  * Spring实现
+    * SimpleClientHttpRequestFactory
+  * HttpClient
+      * HttpComponentsClientHttpRequestFactory
+  * OkHttp
+      * OkHttp3ClientHttpRequestFactory
+      * OkHttpClientHttpRequestFactory
