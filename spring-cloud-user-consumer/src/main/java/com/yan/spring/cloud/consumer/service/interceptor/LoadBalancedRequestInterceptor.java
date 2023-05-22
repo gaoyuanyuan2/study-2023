@@ -17,6 +17,8 @@ import org.springframework.web.client.RestTemplate;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -75,15 +77,22 @@ public class LoadBalancedRequestInterceptor implements ClientHttpRequestIntercep
         String targetURL = targetUrls.get(index);
         String actualURL = targetURL + "/" + uri + "?" + requestURI.getQuery();
 
-        //执行请求
-        RestTemplate restTemplate = new RestTemplate();
-        //响应内容
-        ResponseEntity<InputStream> entity = restTemplate.getForEntity(actualURL, InputStream.class,"");
+//        //执行请求
+//        RestTemplate restTemplate = new RestTemplate();
+//        //响应内容
+//        ResponseEntity<InputStream> entity = restTemplate.getForEntity(actualURL, InputStream.class);
+//
+//        //头
+//        HttpHeaders httpHeaders = entity.getHeaders();
+//        //主题
+//        InputStream responseBody = entity.getBody();
 
-        //头
-        HttpHeaders httpHeaders = entity.getHeaders();
-        //主题
-        InputStream responseBody = entity.getBody();
+        URL url = new URL(actualURL);
+        URLConnection urlConnection = url.openConnection();
+        //响应义
+        HttpHeaders httpHeaders = new HttpHeaders();
+        //响应主体
+        InputStream responseBody = urlConnection.getInputStream();
         return new SimpleClientHttpResponse(httpHeaders, responseBody);
 
     }

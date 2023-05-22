@@ -1,0 +1,71 @@
+#  template
+
+* JSP内置( built-in ) 九大变量
+    *  Servlet Scope 上下文( Spring @Scope )
+    *  PageContext ( page变量)
+       *  关注当前页面
+       *  A forward B
+        *  A变量只能A页面使用，不能共享给B
+        *  A和B可以采用同名变量,同时使用
+    *  Servlet Request (请求上下文) - WebApplicationContext#SCOPE REQUEST
+       *  关注当前请求
+        *  A forward B
+        *  A请求变量可以用于B页面
+    *  Servlet Session (会话上下文) - WebApplicationContext#SCOPE SESSION
+       *  关注当前会话
+        *  A forward / redirect B
+        *  A请求变量可以用于B页面
+    *  Servlet ServletContext (应用上下文) - WebApplicationContext#SCOPE APPLICATION
+       *  关注当前应用
+        *  用户A和用户B会话可以共享
+
+
+* Spring MVC
+    * *.do-> | DispatcherServlet -> Controller -> View J -> ViewResolver -> Vi ew#render J -> HTML ->HttpServletResponse
+        * Thymeleaf ViewResolver -> ThymeleafViewResolver
+        * Thymeleaf View -> ThymeleafView
+            * 通过模板名称解析模板资源
+                * TemplateResolution
+            * 读取资源，并且渲染内容HTML
+                * IEngineContext
+                * ProcessorTemplateHandler
+            * HTML内容输出到Response
+            * 源码路径
+              org.thymeleaf.TemplateEngine#process(org.thymeleaf.TemplateSpec)
+              org.thymeleaf.context.IContext java.io.Writer
+              org.thymeleaf.engine.TemplateManager#parseAndProcess
+
+*  Struts
+* *.do-> ActionServlet-> Action -> ForwardAction -> RequestDispatcher -> JSP ( Servlet) -> HTML -> HttpServletResponse
+
+## JSP为什么Spring抛弃
+
+*  Java EE和Spring竞争关系的
+*  Spring 想独立门户
+*  WebFlux
+   * Servlet 3.1
+   * Reactor +Netty
+* @Controller、@RequestParam
+    * Spring Web MVC
+    * Spring WebFlux
+        * 不再看到Servlet API
+        * ServletRequest
+        * ServletResponse
+
+JSP 性能更好
+
+JSP-> JSP模板->翻译Servlet Java源文件->编程Servlet Class -> Servlet加载-> Servlet执行(字节码执行)
+Thymeleaf -> Thymeleaf模板->解释执行模板表达式(动态运行时)
+
+## HTTP状态码( org.springframework.http.HttpStatus)
+
+* 200
+  *  org.springframework.http.HttpStatus#OK
+* 304
+  *  org.springframework.http.HttpStatus#NOT_MODIFIED
+    * 第一次完整请求，获取响应头(200),直接获取
+    * 第二次请求，只读取头信息，响应头(304)，取上次Body结果
+* 400
+  * org.springframework.http.HttpStatus#BAD_REQUEST
+* 404
+* 500

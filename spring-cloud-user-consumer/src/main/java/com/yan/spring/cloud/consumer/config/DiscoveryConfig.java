@@ -2,6 +2,7 @@ package com.yan.spring.cloud.consumer.config;
 
 import com.yan.spring.cloud.consumer.service.interceptor.LoadBalancedRequestInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
@@ -31,5 +32,12 @@ public class DiscoveryConfig {
         restTemplate.setInterceptors(Arrays.asList(interceptor));
         return restTemplate;
 
+    }
+
+    // Ribbon RestTemplate Bean
+    @CustomizedLoadBalanced
+    @Bean
+    public RestTemplate loadBalancedRestTemplate() {
+        return new RestTemplate();
     }
 }
