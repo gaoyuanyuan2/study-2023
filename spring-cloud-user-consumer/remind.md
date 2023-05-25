@@ -27,7 +27,7 @@ OpenFeign :灵感来自于]AX-RS ( Java REST标准) ,重复发明轮子。
 |技术栈 |HTTP方法 |变量路径 |请求参数 |自描述消息|
 |---|---|---|---|---|
 |JAX-RS |@GET|@PathParam|@FormParam|@Produces("application/json")|
-|Spring MVC|@GetMapping|@PathVariable|@RequestParam|@RequestMapping("application/json")|
+|Spring MVC|@GetMapping|@PathVariable|@RequestParam|@RequestMapping(produces="application/json")|
 |OpenFeign|@RequestLine("GET...")|@Param|@Param||
 |Spring Cloud Feign|@GetMapping|@PathVariable|@RequestParam||
 
