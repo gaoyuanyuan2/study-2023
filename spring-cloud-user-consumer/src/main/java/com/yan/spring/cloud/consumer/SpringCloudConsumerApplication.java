@@ -1,6 +1,8 @@
 package com.yan.spring.cloud.consumer;
 
 import com.yan.spring.cloud.consumer.config.FirstServerForeverRule;
+import com.yan.spring.cloud.consumer.enums.EnableRestClient;
+import com.yan.spring.cloud.consumer.service.feign.UserRestServiceClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -13,6 +15,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableDiscoveryClient
 @EnableFeignClients(basePackages = {"com.yan.spring.cloud.consumer.service.feign"})
 @EnableScheduling
+@EnableRestClient(clients = UserRestServiceClient.class)
 public class SpringCloudConsumerApplication {
 
     public static void main(String[] args) {
