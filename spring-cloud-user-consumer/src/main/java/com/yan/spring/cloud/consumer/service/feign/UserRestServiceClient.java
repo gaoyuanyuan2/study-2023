@@ -8,6 +8,7 @@ import com.yan.spring.cloud.consumer.enums.RestClient;
  * @author : Y
  * @since 2023/4/26 20:01
  */
-@RestClient("spring-cloud-user-provider")
+//@RestClient("spring-cloud-user-provider")
+@RestClient("${spring.cloud.user.provider}")
 public interface UserRestServiceClient extends IUserFeignService {
 }

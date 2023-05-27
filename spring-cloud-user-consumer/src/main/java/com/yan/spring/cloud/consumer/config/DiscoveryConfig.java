@@ -26,6 +26,7 @@ public class DiscoveryConfig {
     //定义RestTemplate Bean
     @Bean
     @Autowired
+    @LoadBalanced
     public RestTemplate restTemplate(ClientHttpRequestInterceptor interceptor) {//依赖注入
         RestTemplate restTemplate = new RestTemplate();
         //增加拦截器
