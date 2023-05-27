@@ -28,6 +28,8 @@
         <module>spring-cloud-rabbitmq</module>
         <module>spring-cloud-sleuth</module>
         <module>spring-cloud-zipkin</module>
+        <module>spring-boot-web-flux</module>
+        <module>spring-cloud-servlet-gateway</module>
     </modules>
     <dependencyManagement>
         <dependencies>

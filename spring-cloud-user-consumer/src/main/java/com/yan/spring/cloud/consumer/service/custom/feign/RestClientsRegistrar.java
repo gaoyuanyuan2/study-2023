@@ -32,6 +32,10 @@ public class RestClientsRegistrar implements ImportBeanDefinitionRegistrar, Bean
     private BeanFactory beanFactory;
     private Environment environment;
 
+    /**
+     * 接口方法参数名称在 ParameterNameDiscoverer 找不到
+     * 类方法参数名称在 ParameterNameDiscoverer 可以找到
+     */
     @Override
     public void registerBeanDefinitions(AnnotationMetadata metadata, BeanDefinitionRegistry registry) {
         Map<String, Object> attributes =
