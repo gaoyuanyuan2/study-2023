@@ -10,9 +10,15 @@ import java.util.stream.Stream;
 
 /**
  * 获取接口参数名称
- *
+ *  https://docs.oracle.com/javase/tutorial/reflect/member/methodparameterreflection.html
  * @author : Y
  * @since 2023/5/30 20:10
+ *
+ * 增加java -parameters
+
+ * 大前提 :必须是Java 8 +
+ *
+ * 为什么不加也可以取到
  */
 public class Test {
     public static void main(String[] args) {
