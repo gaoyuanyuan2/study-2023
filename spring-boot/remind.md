@@ -100,3 +100,8 @@ React(反应)
 
 Mono :单数据optional 0:1, RxJava: Single
 Flux:多数据集合，Collection  0:N, RxJava : observable
+
+## 解决循环依赖
+
+* @Lazy
+* org.springframework.beans.factory.ObjectProvider.getIfAvailable()
