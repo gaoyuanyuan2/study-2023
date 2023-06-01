@@ -59,3 +59,12 @@ Ribbon,但是不是强依赖。Spring Cloud对Feign 增强，Feign 原始不支�
   * OkHttp
       * OkHttp3ClientHttpRequestFactory
       * OkHttpClientHttpRequestFactory
+
+## 经验之谈
+
+* 1.任何结论,需要程序检验(稳定重现)
+* 2.经常写代码、多看、多思考
+* 3.训练思维模式(抽象思维、辩证思维、逆向思维、发散思维)
+* 4.原始积累( JDK、框架: Spring、Tomcat、 Log4j等等 )
+* 5.少对同伴代码指点,方案上可以讨论( Code Review思维是否严谨)
+* 6.乐于分享(演讲、技术沙龙、讨论会议等)
