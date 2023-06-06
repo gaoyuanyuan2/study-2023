@@ -105,3 +105,12 @@ Flux:多数据集合，Collection  0:N, RxJava : observable
 
 * @Lazy
 * org.springframework.beans.factory.ObjectProvider.getIfAvailable()
+
+## 普通Bean
+
+* 编码BeanDefinition 生成的
+* XML配置的
+* 注解标注的
+* 直接注册的
+* FactoryBean生成的
+
