@@ -14,8 +14,28 @@ QPS:经过全链路压测，计算单机极限QPS，集群QPS=单机QPS*集群�
 * 重试实现: RetryRule
 * 客户端配置: ClientConfigEnabledRoundRobinRule
 * 可用性过滤规则: AvailabilityFilteringRule
-* RT权重规则: WeightedResponseTimeRule
+* 权重+响应时间: WeightedResponseTimeRule
 * 规避区域规则: ZoneAvoidanceRule
+* 粘性: StickyRule
+
+
+## DynamicServerListLoadBalancer(IClientConfig clientConfig, IRule rule, IPing ping,ServerList<T> serverList, ServerListFilter<T> filter,ServerListUpdater serverListUpdater)
+
+### 配置 - IClientConfig
+### 负责规则 - IRule
+### 判断指定服务实例是否存活 - IPing
+### 服务实例列表 - ServerList
+### 服务实例列表过滤 - ServerListFilter（过滤不可用服务）
+
+* 过滤不可用机器（两台）
+* 蓝绿发布（蓝、绿）
+* 动态路由（北京地区、上海地区、杭州地区）
+
+### 服务实例列表更新 - ServerListUpdater
+
+客户端周期性更新 - 30s 一次拉取注册中心的服务
+服务端推送 - 推送新增或者移除的服务实例，通知客户端更新
+
 
 ## Feign
 
