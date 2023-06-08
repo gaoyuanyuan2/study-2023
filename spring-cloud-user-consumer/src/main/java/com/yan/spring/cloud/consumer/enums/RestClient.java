@@ -21,4 +21,7 @@ public @interface RestClient {
 
     @AliasFor("name")
     String value() default "";
+
+    @AliasFor("value")
+    String name() default "";
 }

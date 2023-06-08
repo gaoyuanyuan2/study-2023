@@ -91,7 +91,7 @@ public class RestClientsRegistrar implements ImportBeanDefinitionRegistrar, Bean
          <constructor-arg> ${} </construtor-arg>
          </bean>
          */
-        BeanDefinition beanDefinition = null;
+        BeanDefinition beanDefinition = beanDefinitionBuilder.getBeanDefinition();
         registry.registerBeanDefinition(beanName, beanDefinition);
     }
 
