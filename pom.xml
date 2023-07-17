@@ -35,6 +35,7 @@
         <module>spring-boot-webflux</module>
         <module>demo</module>
         <module>my-spring</module>
+        <module>my-spring-2.0</module>
     </modules>
     <dependencyManagement>
         <dependencies>

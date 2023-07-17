@@ -1,6 +1,6 @@
-package com.yan.spring.my.webmvc.servlet;
+package com.yan.spring.v2.webmvc.servlet;
 
-import com.yan.spring.my.context.MyApplicationContext;
+import com.yan.spring.v2.context.MyApplicationContext;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;

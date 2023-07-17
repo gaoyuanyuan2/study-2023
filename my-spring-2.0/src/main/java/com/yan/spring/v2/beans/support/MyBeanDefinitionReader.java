@@ -1,6 +1,6 @@
-package com.yan.spring.my.beans.support;
+package com.yan.spring.v2.beans.support;
 
-import com.yan.spring.my.beans.config.MyBeanDefinition;
+import com.yan.spring.v2.beans.config.MyBeanDefinition;
 
 import java.io.File;
 import java.io.IOException;
@@ -93,7 +93,4 @@ public class MyBeanDefinitionReader {
         return String.valueOf(chars);
     }
 
-    public Properties getConfig() {
-        return this.contextConfig;
-    }
 }

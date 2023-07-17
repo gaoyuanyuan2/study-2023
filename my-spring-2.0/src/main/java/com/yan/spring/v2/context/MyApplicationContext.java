@@ -1,18 +1,16 @@
-package com.yan.spring.my.context;
+package com.yan.spring.v2.context;
 
-import com.yan.spring.my.annotation.MyAutowired;
-import com.yan.spring.my.annotation.MyController;
-import com.yan.spring.my.annotation.MyService;
-import com.yan.spring.my.beans.MyBeanWrapper;
-import com.yan.spring.my.beans.config.MyBeanDefinition;
-import com.yan.spring.my.beans.support.MyBeanDefinitionReader;
+import com.yan.spring.v2.annotation.MyAutowired;
+import com.yan.spring.v2.annotation.MyController;
+import com.yan.spring.v2.annotation.MyService;
+import com.yan.spring.v2.beans.MyBeanWrapper;
+import com.yan.spring.v2.beans.config.MyBeanDefinition;
+import com.yan.spring.v2.beans.support.MyBeanDefinitionReader;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
-import java.util.Set;
 
 /**
  * ApplicationContext
@@ -54,7 +52,7 @@ public class MyApplicationContext {
         });
     }
 
-    public Object getBean(String beanName) {
+    private Object getBean(String beanName) {
         //1、先拿到BeanDefinition配置信息
         MyBeanDefinition beanDefinition = beanDefinitionMap.get(beanName);
         //2、反射实例化newInstance();
@@ -114,17 +112,5 @@ public class MyApplicationContext {
             beanDefinitionMap.put(beanDefinition.getBeanClassName(), beanDefinition);
             beanDefinitionMap.put(beanDefinition.getFactoryBeanName(), beanDefinition);
         }
-    }
-
-    public int getBeanDefinitionCount() {
-        return beanDefinitionMap.size();
-    }
-
-    public Set<String> getBeanDefinitionNames() {
-        return beanDefinitionMap.keySet();
-    }
-
-    public Properties getConfig() {
-        return this.reader.getConfig();
     }
 }
