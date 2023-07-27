@@ -56,7 +56,7 @@ public class DispatcherServlet  extends HttpServlet {
         //5、初始化HandlerMapping
         doInitHandlerMapping();
 
-        System.out.println("GP Spring framework is init.");
+        System.out.println("My Spring framework is init.");
     }
 
     private void doInitHandlerMapping() {

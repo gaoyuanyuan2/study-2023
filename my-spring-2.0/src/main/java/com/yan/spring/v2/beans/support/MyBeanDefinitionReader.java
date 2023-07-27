@@ -49,6 +49,9 @@ public class MyBeanDefinitionReader {
 
     }
 
+    public Properties getConfig(){
+        return this.contextConfig;
+    }
     private void doLoadConfig(String configLocation) {
         InputStream is = this.getClass().getClassLoader().getResourceAsStream(configLocation.replaceAll("classpath:", ""));
         try {

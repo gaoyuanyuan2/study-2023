@@ -1,5 +1,8 @@
 package com.yan.spring.v2.context;
 
+import com.yan.spring.my.aop.MyJdkDynamicAopProxy;
+import com.yan.spring.my.aop.config.MyAopConfig;
+import com.yan.spring.my.aop.support.MyAdvisedSupport;
 import com.yan.spring.v2.annotation.MyAutowired;
 import com.yan.spring.v2.annotation.MyController;
 import com.yan.spring.v2.annotation.MyService;
@@ -97,11 +100,36 @@ public class MyApplicationContext {
         try {
             Class<?> c = Class.forName(className);
             instance = c.newInstance();
-            factoryBeanObjectCache.put(beanName, instance);
+            //==================AOP开始=========================
+            //如果满足条件，就直接返回Proxy对象
+            //1、加载AOP的配置文件
+            MyAdvisedSupport config = instantiateAopConfig();
+            config.setTargetClass(c);
+            config.setTarget(instance);
+
+            //判断规则，要不要生成代理类，如果要就覆盖原生对象
+            //如果不要就不做任何处理，返回原生对象
+            if(config.pointCutMath()){
+                instance = new MyJdkDynamicAopProxy(config).getProxy();
+            }
+
+            //===================AOP结束========================
+            this.factoryBeanObjectCache.put(beanName, instance);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return instance;
+    }
+
+    private MyAdvisedSupport instantiateAopConfig() {
+        MyAopConfig config = new MyAopConfig();
+        config.setPointCut(this.reader.getConfig().getProperty("pointCut"));
+        config.setAspectClass(this.reader.getConfig().getProperty("aspectClass"));
+        config.setAspectBefore(this.reader.getConfig().getProperty("aspectBefore"));
+        config.setAspectAfter(this.reader.getConfig().getProperty("aspectAfter"));
+        config.setAspectAfterThrow(this.reader.getConfig().getProperty("aspectAfterThrow"));
+        config.setAspectAfterThrowingName(this.reader.getConfig().getProperty("aspectAfterThrowingName"));
+        return new MyAdvisedSupport(config);
     }
 
     private void doRegisterBeanDefinition(List<MyBeanDefinition> beanDefinitions) throws Exception {
