@@ -11,7 +11,7 @@ import java.lang.reflect.Proxy;
 import java.util.Map;
 
 /**
- * Created by Tom.
+ * My
  */
 public class MyJdkDynamicAopProxy implements InvocationHandler {
 
