@@ -7,7 +7,7 @@ package com.yan.demo.gof23.singleton;
  * @since 2023/6/19 21:20
  */
 public class ThreadLocalSingleton {
-    private final static ThreadLocal<ThreadLocalSingleton> singletonThreadLocal = new ThreadLocal<>() {
+    private final static ThreadLocal<ThreadLocalSingleton> singletonThreadLocal = new ThreadLocal<ThreadLocalSingleton>() {
 
         @Override
         protected ThreadLocalSingleton initialValue() {
