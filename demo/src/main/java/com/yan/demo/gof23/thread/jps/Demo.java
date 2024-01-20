@@ -1,4 +1,4 @@
-package com.yan.demo.gof23.jps;
+package com.yan.demo.gof23.thread.jps;
 
 import java.util.concurrent.TimeUnit;
 
