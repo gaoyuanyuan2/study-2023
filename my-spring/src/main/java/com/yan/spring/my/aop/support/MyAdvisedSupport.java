@@ -11,15 +11,17 @@ import java.util.regex.Pattern;
 
 /**
  * 解析AOP配置的工具类
- * Created by Tom.
+ * My
  */
 public class MyAdvisedSupport {
     private MyAopConfig config;
     private Object target;
     private Class targetClass;
     private Pattern pointCutClassPattern;
-
-    private Map<Method,Map<String, MyAdvice>> methodCache;
+    /**
+     * 建立 method 和 advice 的关系
+     */
+    private Map<Method, Map<String, MyAdvice>> methodCache;
 
     public MyAdvisedSupport(MyAopConfig config) {
         this.config = config;
@@ -45,57 +47,56 @@ public class MyAdvisedSupport {
         methodCache = new HashMap<Method, Map<String, MyAdvice>>();
         //保存专门匹配方法的正则
         Pattern pointCutPattern = Pattern.compile(pointCut);
-        try{
+        try {
             Class aspectClass = Class.forName(this.config.getAspectClass());
-            Map<String,Method> aspectMethods = new HashMap<String, Method>();
+            Map<String, Method> aspectMethods = new HashMap<String, Method>();
             for (Method method : aspectClass.getMethods()) {
-                aspectMethods.put(method.getName(),method);
+                aspectMethods.put(method.getName(), method);
             }
 
             for (Method method : this.targetClass.getMethods()) {
                 String methodString = method.toString();
-                if(methodString.contains("throws")){
-                    methodString = methodString.substring(0,methodString.lastIndexOf("throws")).trim();
+                if (methodString.contains("throws")) {
+                    methodString = methodString.substring(0, methodString.lastIndexOf("throws")).trim();
                 }
 
                 Matcher matcher = pointCutPattern.matcher(methodString);
-                if(matcher.matches()){
-                    Map<String,MyAdvice> advices = new HashMap<String, MyAdvice>();
+                if (matcher.matches()) {
+                    Map<String, MyAdvice> advices = new HashMap<String, MyAdvice>();
 
-                    if(!(null == config.getAspectBefore() || "".equals(config.getAspectBefore()))){
-                        advices.put("before",new MyAdvice(aspectClass.newInstance(),aspectMethods.get(config.getAspectBefore())));
+                    if (!(null == config.getAspectBefore() || "".equals(config.getAspectBefore()))) {
+                        advices.put("before", new MyAdvice(aspectClass.newInstance(), aspectMethods.get(config.getAspectBefore())));
                     }
-                    if(!(null == config.getAspectAfter() || "".equals(config.getAspectAfter()))){
-                        advices.put("after",new MyAdvice(aspectClass.newInstance(),aspectMethods.get(config.getAspectAfter())));
+                    if (!(null == config.getAspectAfter() || "".equals(config.getAspectAfter()))) {
+                        advices.put("after", new MyAdvice(aspectClass.newInstance(), aspectMethods.get(config.getAspectAfter())));
                     }
-                    if(!(null == config.getAspectAfterThrow() || "".equals(config.getAspectAfterThrow()))){
-                        MyAdvice advice = new MyAdvice(aspectClass.newInstance(),aspectMethods.get(config.getAspectAfterThrow()));
+                    if (!(null == config.getAspectAfterThrow() || "".equals(config.getAspectAfterThrow()))) {
+                        MyAdvice advice = new MyAdvice(aspectClass.newInstance(), aspectMethods.get(config.getAspectAfterThrow()));
                         advice.setThrowName(config.getAspectAfterThrowingName());
-                        advices.put("afterThrow",advice);
+                        advices.put("afterThrow", advice);
                     }
 
                     //跟目标代理类的业务方法和Advices建立一对多个关联关系，以便在Porxy类中获得
-                    methodCache.put(method,advices);
+                    methodCache.put(method, advices);
                 }
             }
 
 
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
 
 
-
     //根据一个目标代理类的方法，获得其对应的通知
-    public Map<String,MyAdvice> getAdvices(Method method, Object o) throws Exception {
+    public Map<String, MyAdvice> getAdvices(Method method, Object o) throws Exception {
         //享元设计模式的应用
-        Map<String,MyAdvice> cache = methodCache.get(method);
-        if(null == cache){
-            Method m = targetClass.getMethod(method.getName(),method.getParameterTypes());
+        Map<String, MyAdvice> cache = methodCache.get(method);
+        if (null == cache) {
+            Method m = targetClass.getMethod(method.getName(), method.getParameterTypes());
             cache = methodCache.get(m);
-            this.methodCache.put(m,cache);
+            this.methodCache.put(m, cache);
         }
         return cache;
     }
