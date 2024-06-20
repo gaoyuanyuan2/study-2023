@@ -1,4 +1,4 @@
-package com.yan.demo.gof23.utils.xls.json;
+package com.yan.demo.base.xls.json;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;

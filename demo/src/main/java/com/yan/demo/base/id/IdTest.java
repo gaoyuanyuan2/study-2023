@@ -1,4 +1,4 @@
-package com.yan.demo.gof23.id;
+package com.yan.demo.base.id;
 
 import org.apache.commons.lang3.RandomUtils;
 
