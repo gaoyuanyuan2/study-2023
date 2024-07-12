@@ -1,5 +1,6 @@
 package com.yan.demo.gof23.thread;
 
+import org.junit.jupiter.api.Test;
 import sun.misc.Unsafe;
 
 import java.lang.invoke.MethodHandles;
@@ -8,17 +9,31 @@ import java.lang.reflect.Field;
 import java.security.AccessController;
 import java.security.PrivilegedActionException;
 import java.security.PrivilegedExceptionAction;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class AtomicDemo {
 
+    private int count = 0;
+
     public static void main(String[] args) throws Exception {
         // CAS 是一种相对（MB）较重的比较，轻量级的锁（标量）
 
         getUnsafe();
-
         // volatile 修饰复杂对象类型时，不具备被传递到字段安全
+    }
+
+    @Test
+    public void test() throws InterruptedException {
+        ExecutorService executorService = Executors.newFixedThreadPool(20);
+        for (int i = 0; i < 100; i++) {
+            executorService.submit(() -> System.out.println(count++));
+        }
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println(count==100);
     }
 
     private static void demoAtomicLong() {
@@ -66,4 +81,6 @@ public class AtomicDemo {
         }
 
     }
+
+
 }
