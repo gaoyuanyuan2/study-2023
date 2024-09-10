@@ -1,6 +1,7 @@
 package com.yan.spring.boot.service;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 
 /**
  * CompletableFuture
@@ -10,16 +11,42 @@ import java.util.concurrent.CompletableFuture;
  */
 public class CompletableFutureTest {
     public static void main(String[] args) {
+        long s1 = System.currentTimeMillis();
         println("当前线程");
-        CompletableFuture.supplyAsync(() -> {
-                    println("第一步返回\"Hello\"");
+        CompletableFuture.runAsync(()->{
+                    System.out.println("异步");
+                    try {
+                        TimeUnit.SECONDS.sleep(3);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }).runAsync(()->{
+                    System.out.println("异步");
+                    try {
+                        TimeUnit.SECONDS.sleep(3);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }).supplyAsync(() -> {
+                    println("同步第一步返回\"Hello\"");
+                    try {
+                        TimeUnit.SECONDS.sleep(3);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     return "Hello";
                 }).thenApplyAsync(result -> {//异步?
-                    println("第二 步在第一步结果+\",World\"");
+                    println("同步第二 步在第一步结果+\",World\"");
+                    try {
+                        TimeUnit.SECONDS.sleep(3);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     return result + ",World";
                 }).thenAccept(CompletableFutureTest::println) //控制输出
                 .whenComplete((v, error) -> { //返回值void,异常->结束状态
-                    println("执行结束!");
+                    long s2 = System.currentTimeMillis();
+                    println("执行结束! cost:"+(s2-s1));
                 }).join(); //等待执行结束
     }
 

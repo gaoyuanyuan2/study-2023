@@ -8,7 +8,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
+import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 
@@ -72,5 +74,13 @@ public class RestWebMvcConfigurer implements WebMvcConfigurer {
         // 不建议添加到 converters 的末尾
 //        converters.add(new PropertiesHttpMessageConverter());
 //        converters.set(0, new PropertiesHttpMessageConverter()); // 添加到集合首位
+    }
+
+    @Autowired
+    private List<HandlerInterceptor> handlerInterceptors;
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        handlerInterceptors.forEach(registry::addInterceptor);
     }
 }
