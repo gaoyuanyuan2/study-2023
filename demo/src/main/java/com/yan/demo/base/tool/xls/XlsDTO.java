@@ -1,4 +1,4 @@
-package com.yan.demo.base.xls.read;
+package com.yan.demo.base.tool.xls;
 
 import com.alibaba.excel.annotation.ExcelProperty;
 
@@ -13,7 +13,7 @@ public class XlsDTO implements Serializable {
     /**
      * 手机号码
      */
-    @ExcelProperty("手机号码*")
+    @ExcelProperty("ddbh")
     private String phone;
 
     public String getPhone() {
