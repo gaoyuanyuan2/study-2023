@@ -1,0 +1,36 @@
+1.（选做）自己写一个简单的 Hello.java，里面需要涉及基本类型，四则运行，if 和 for，然后自己分析一下对应的字节码，有问题群里讨论。
+
+PS E:\idea\my\study-2023\demo\target\classes\com\yan\demo\geekbang\advance6\jvm> javap -c  Hello
+警告: 二进制文件Hello包含com.yan.demo.geekbang.advance6.jvm.Hello
+Compiled from "Hello.java"
+public class com.yan.demo.geekbang.advance6.jvm.Hello {
+  public com.yan.demo.geekbang.advance6.jvm.Hello();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: invokestatic  #2                  // Method hello:()V
+       3: return
+
+  public static void hello();
+    Code:
+       0: iconst_0
+       1: istore_0
+       2: iload_0
+       3: bipush        10
+       5: if_icmpge     29
+       8: iload_0
+       9: iconst_2
+      10: if_icmpne     23
+      13: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      16: iload_0
+      17: bipush        9
+      19: iadd
+      20: invokevirtual #4                  // Method java/io/PrintStream.println:(I)V
+      23: iinc          0, 1
+      26: goto          2
+      29: return
+}

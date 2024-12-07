@@ -24,7 +24,7 @@ public class XlsMain {
         List<XlsDTO> xlsDTOS = xlsListener.getCachedDataList();
         for (XlsDTO xlsDTO : xlsDTOS) {
             TimeUnit.MILLISECONDS.sleep(200);
-//            PushBigTable.pushOne(xlsDTO.getPhone());
+            PushBigTable.pushOne(xlsDTO.getPhone());
         }
 //        System.out.println(xlsDTOS.stream().map(XlsDTO::getPhone).map(e -> "'" + e + "'").collect(Collectors.joining(",")));
     }

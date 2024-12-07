@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import sun.misc.Unsafe;
 
 import java.lang.invoke.MethodHandles;
-import java.lang.invoke.VarHandle;
 import java.lang.reflect.Field;
 import java.security.AccessController;
 import java.security.PrivilegedActionException;
