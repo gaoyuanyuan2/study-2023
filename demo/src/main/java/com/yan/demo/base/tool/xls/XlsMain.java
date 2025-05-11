@@ -3,7 +3,6 @@ package com.yan.demo.base.tool.xls;
 import com.alibaba.excel.EasyExcel;
 import com.yan.demo.base.tool.xls.XlsDTO;
 import com.yan.demo.base.tool.xls.XlsListener;
-import com.yan.demo.base.xls.read.PushBigTable;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
