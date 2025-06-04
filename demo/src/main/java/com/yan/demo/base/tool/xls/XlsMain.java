@@ -4,11 +4,16 @@ import com.alibaba.excel.EasyExcel;
 import com.yan.demo.base.tool.xls.XlsDTO;
 import com.yan.demo.base.tool.xls.XlsListener;
 import com.yan.demo.base.xls.read.PushBigTable;
+import com.yan.demo.base.xls.read.PushBigTable2;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
+
+import static com.yan.demo.base.xls.read.SassXlsMain.getDetail;
+import static com.yan.demo.base.xls.read.SassXlsMain.update;
 
 /**
  * @since 2024/6/17 17:39
@@ -23,8 +28,11 @@ public class XlsMain {
                 .doRead();
         List<XlsDTO> xlsDTOS = xlsListener.getCachedDataList();
         for (XlsDTO xlsDTO : xlsDTOS) {
+            String ddbh = xlsDTO.getPhone();
+//            Map detail = getDetail(ddbh);
+//            update(ddbh, detail);
             TimeUnit.MILLISECONDS.sleep(200);
-            PushBigTable.pushOne(xlsDTO.getPhone());
+            PushBigTable2.pushOne(ddbh);
         }
 //        System.out.println(xlsDTOS.stream().map(XlsDTO::getPhone).map(e -> "'" + e + "'").collect(Collectors.joining(",")));
     }
